@@ -2,136 +2,34 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ConstrucTalk - แอปฝึกภาษาอังกฤษก่อสร้าง (Mobile 100% Compatible)</title>
-    <!-- ใช้ Tailwind แบบ Compiled JS เพื่อความสวยงาม (ทำงานได้ดีบนมือถือ) -->
-    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=WSPUYN5a8FV5Bipkkp1vgEMpapDo7YLeILxKOWWFZc4nCr4Fi94iKUQFQ1QSDsnjmXkikOA9-Ve5Kng_9r2yYcnzcC6kcP2Cyuq6z4Hi6X9dNMrqgh0eJ2T9Bb2xWteKzQzDJ2se7cwhMjjEh7qy_GsBDJniYNcZCRyEFanq21YIy1egq6Lk6LXGry2mJoRA7hpLvj6fkOE33jL1fRMBVExFYbxEDGB7im-Jz-PU062VAJuO3T8XDkJuFIsFJZ-8UNUz4p2DymDPItPcSuEpy9C9_RB7o-i2hjgb2HyWUPP9QB51H6Y5CKsP9fPqPm-u1EHMrqhpA7ITj9-HX9Y1rA" charset="UTF-8"></script><script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Sarabun', 'sans-serif'],
-                        heading: ['Chakra Petch', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConstrucTalk - แอปฝึกภาษาอังกฤษก่อสร้าง</title>
+    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=VyEAsCrMZiNEPcdEz_eEUBLDBbMiqHEDKruPJ9JZmQoa4Ijk5b90QlqEN7ZI_SbCYMqS3pt3LCmawdOvxbGPp9EM0sV1MZ7oZBVq2FizaN1LN5ZrxaVKVDjZ-y3vbB_ROf2yfHX_S5GamnBJyNDSIQgzBx2EBHiOHRRtZSvXZYj490U-Det4o2lAYVUz4PhDOml9KpCYX-U-9eCIeIeP6tmQk42HbePsfqdj79zwxDl1Xc9NYSopnh1DxYxeV2l2jtOFKcBLm8-5JPCFea1Q0g9Tp3udSTbVl1e-UrcLR6g_QJUB8QOI3RqxKqE1Vy1l2do6wb6DaM18VYXpX1DjJQ" charset="UTF-8"></script><script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;700&family=Sarabun:wght@300;400;500;700&display=swap');
         body {
+            font-family: 'Sarabun', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
-            -webkit-font-smoothing: antialiased;
         }
-        input[type="text"] {
-            font-size: 16px; /* ป้องกัน iOS ซูม */
+        .heading-font {
+            font-family: 'Chakra Petch', sans-serif;
         }
-        .hidden-tab { display: none !important; }
-        .active-tab-btn-dark { background-color: #0f172a; color: #facc15; border-top: 4px solid #facc15; }
-        .active-tab-btn-light { background-color: #ffffff; color: #1e40af; border-top: 4px solid #1e40af; }
-        .inactive-tab-btn-dark { background-color: #1e293b; color: #64748b; }
-        .inactive-tab-btn-light { background-color: #e2e8f0; color: #475569; }
+        .smooth-transition {
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-200 min-h-screen flex flex-col" id="app-body">
+<body id="body-tag">
+    <div id="root"></div>
 
-    <!-- Header -->
-    <header id="header-area" class="bg-slate-900 border-b border-slate-800 text-white p-5 shadow-md sticky top-0 z-10 transition-colors duration-300">
-        <div class="max-w-4xl mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <svg class="w-10 h-10 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3a9 9 0 00-9 9v1a3 3 0 003 3h12a3 3 0 003-3v-1a9 9 0 00-9-9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v3m0 12v3m-9-9h3m12 0h3"></path></svg>
-                <div>
-                    <h1 class="text-2xl font-bold font-heading tracking-wide">ConstrucTalk v1.5</h1>
-                    <p class="text-sm text-blue-200" id="header-subtitle">แอปฝึกภาษาอังกฤษ (แก้ไขจอขาว)</p>
-                </div>
-            </div>
-            <button onclick="toggleDarkMode()" id="theme-btn" class="p-3 rounded-full bg-yellow-400 text-slate-900 transition-colors">
-                <svg id="icon-sun" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.364 17.636l-.707.707M17.636 17.636l-.707-.707M6.364 6.364l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
-                <svg id="icon-moon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-            </button>
-        </div>
-    </header>
+    <script type="text/babel">
+        const { useState, useMemo, useEffect } = React;
 
-    <!-- Tabs -->
-    <div class="max-w-4xl mx-auto flex w-full p-4 pb-0 gap-3 mt-2">
-        <button onclick="switchTab('learn')" id="btn-tab-learn" class="flex-1 flex flex-col items-center justify-center gap-2 py-4 rounded-t-2xl text-lg font-bold transition-all active-tab-btn-dark">
-            <div class="flex items-center gap-2">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                คลังประโยค
-            </div>
-        </button>
-        <button onclick="switchTab('quiz')" id="btn-tab-quiz" class="flex-1 flex flex-col items-center justify-center gap-2 py-4 rounded-t-2xl text-lg font-bold transition-all inactive-tab-btn-dark">
-            <div class="flex items-center gap-2">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-                ทดสอบความจำ
-            </div>
-        </button>
-    </div>
-
-    <!-- Main Content Area -->
-    <main id="main-container" class="max-w-4xl mx-auto w-full flex-1 shadow-sm p-4 rounded-b-2xl mb-12 transition-colors duration-300 bg-slate-900">
-        
-        <!-- LEARN TAB -->
-        <div id="tab-learn" class="space-y-6 block">
-            <div class="space-y-4">
-                <div class="relative">
-                    <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                    </div>
-                    <input type="text" id="search-input" onkeyup="renderPhrases()" placeholder="ค้นหา (ปูน, เข็ม, ตรวจ, น้ำรั่ว)..." class="w-full pl-12 pr-4 py-4 border rounded-2xl outline-none text-lg transition-colors bg-slate-800 border-slate-700 text-slate-200 focus:ring-2 focus:ring-yellow-500 placeholder-slate-500" />
-                </div>
-                <div id="category-container" class="flex flex-wrap gap-2"></div>
-            </div>
-            <div id="phrase-count" class="text-base font-bold text-slate-500">กำลังโหลด...</div>
-            <div id="phrase-list" class="grid grid-cols-1 gap-5"></div>
-        </div>
-
-        <!-- QUIZ TAB -->
-        <div id="tab-quiz" class="hidden-tab">
-            <div id="quiz-start" class="flex flex-col items-center justify-center py-20 text-center block">
-                <div id="quiz-icon-bg" class="w-24 h-24 rounded-full flex items-center justify-center mb-8 shadow-inner bg-slate-800 text-yellow-400">
-                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-                </div>
-                <h2 id="quiz-title-1" class="text-3xl font-bold mb-4 font-heading text-slate-100">พร้อมทดสอบ<br/>ความแม่นยำหรือยัง?</h2>
-                <p id="quiz-desc" class="mb-10 text-base px-6 leading-relaxed text-slate-400">ระบบจะสุ่มประโยคภาษาไทยขึ้นมา 10 ข้อ ให้คุณเลือกประโยคภาษาอังกฤษที่ตรงที่สุด</p>
-                <button onclick="startQuiz()" id="btn-start-quiz" class="w-full max-w-xs font-bold py-4 px-8 rounded-2xl shadow-md text-xl bg-yellow-500 text-slate-950 active:bg-yellow-400">เริ่มทำแบบทดสอบ</button>
-            </div>
-
-            <div id="quiz-playing" class="max-w-2xl mx-auto py-4 hidden-tab">
-                <div class="flex justify-between items-center mb-6 px-1">
-                    <span id="quiz-progress-text" class="text-sm font-bold uppercase tracking-wider text-slate-500">คำถามข้อที่ 1 / 10</span>
-                    <span id="quiz-score-badge" class="font-bold px-4 py-2 rounded-full text-sm bg-yellow-900 text-yellow-300">คะแนน: 0</span>
-                </div>
-                <div id="quiz-question-box" class="p-8 rounded-2xl mb-8 shadow-md text-center border bg-slate-800 border-slate-700 text-white">
-                    <span class="inline-block px-3 py-1 bg-slate-700 text-slate-300 text-xs font-bold rounded mb-4">ความหมายภาษาไทย</span>
-                    <h3 id="quiz-question-text" class="text-2xl font-bold leading-relaxed">กำลังโหลดคำถาม...</h3>
-                </div>
-                <div id="quiz-options" class="space-y-4"></div>
-                <div id="quiz-next-container" class="mt-8 flex justify-end hidden-tab">
-                    <button onclick="nextQuestion()" id="btn-next-quiz" class="flex items-center justify-center gap-2 font-bold py-4 px-6 rounded-2xl shadow-sm text-lg w-full md:w-auto bg-yellow-500 text-slate-950 active:bg-yellow-400">
-                        <span id="btn-next-text">ไปข้อถัดไป</span> 
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
-                </div>
-            </div>
-
-            <div id="quiz-end" class="flex flex-col items-center justify-center py-20 text-center hidden-tab">
-                <div id="quiz-final-emoji" class="text-6xl mb-6">🏅</div>
-                <h2 id="quiz-final-title" class="text-4xl font-bold mb-3 font-heading text-slate-100">สรุปคะแนน</h2>
-                <p id="quiz-final-desc" class="mb-10 text-lg font-medium text-slate-400">คุณได้คะแนน <span id="quiz-final-score" class="font-black text-3xl text-yellow-400">0</span> เต็ม 10</p>
-                <button onclick="startQuiz()" id="btn-restart-quiz" class="flex items-center justify-center gap-3 w-full max-w-xs font-bold py-4 px-6 rounded-2xl text-xl bg-slate-700 text-white active:bg-slate-600">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.253 8H18"></path></svg>
-                    เล่นใหม่อีกรอบ
-                </button>
-            </div>
-        </div>
-    </main>
-
-    <script>
-        // ---------------- DATA ----------------
         const PHRASES_DATA = [
+            // --- หมวด: การวางแผน/ทั่วไป ---
             { id: 1, en: "What's the plan for today?", th: "แผนสำหรับวันนี้คืออะไร?", category: "การวางแผน/ทั่วไป" },
             { id: 2, en: "Let's get started.", th: "มาเริ่มกันเลย", category: "การวางแผน/ทั่วไป" },
             { id: 3, en: "We are behind schedule.", th: "เราทำงานช้ากว่ากำหนดการ", category: "การวางแผน/ทั่วไป" },
@@ -142,16 +40,47 @@
             { id: 8, en: "Good job. / Well done.", th: "ทำได้ดีมาก", category: "การวางแผน/ทั่วไป" },
             { id: 9, en: "Are we on track?", th: "เราทำงานตามแผนที่วางไว้ไหม?", category: "การวางแผน/ทั่วไป" },
             { id: 10, en: "The site manager will be here soon.", th: "ผู้จัดการไซต์จะมาที่นี่เร็วๆ นี้", category: "การวางแผน/ทั่วไป" },
+            { id: 11, en: "Let's call it a day.", th: "วันนี้เลิกงานแค่นี้เถอะ", category: "การวางแผน/ทั่วไป" },
+            { id: 12, en: "We need more manpower.", th: "เราต้องการคนงานเพิ่ม", category: "การวางแผน/ทั่วไป" },
+            { id: 13, en: "Please update the progress report.", th: "กรุณาอัปเดตรายงานความคืบหน้าด้วย", category: "การวางแผน/ทั่วไป" },
+            { id: 14, en: "Is the paperwork ready?", th: "เอกสารพร้อมหรือยัง?", category: "การวางแผน/ทั่วไป" },
+            { id: 15, en: "We can't work in this weather.", th: "เราทำงานในสภาพอากาศแบบนี้ไม่ได้", category: "การวางแผน/ทั่วไป" },
+
+            // --- หมวด: ความปลอดภัย ---
             { id: 16, en: "Safety first. Everyone must wear a helmet.", th: "ความปลอดภัยต้องมาก่อน ทุกคนต้องสวมหมวกนิรภัย", category: "ความปลอดภัย" },
             { id: 17, en: "Watch out for falling objects.", th: "ระวังของตกจากที่สูง", category: "ความปลอดภัย" },
             { id: 18, en: "Stop work immediately.", th: "หยุดทำงานทันที", category: "ความปลอดภัย" },
             { id: 19, en: "Put on your safety glasses.", th: "สวมแว่นตานิรภัยด้วย", category: "ความปลอดภัย" },
             { id: 20, en: "Wear your safety harness when working at height.", th: "สวมเข็มขัดนิรภัยเมื่อทำงานบนที่สูง", category: "ความปลอดภัย" },
+            { id: 21, en: "Do not enter this restricted area.", th: "ห้ามเข้าพื้นที่หวงห้ามนี้", category: "ความปลอดภัย" },
+            { id: 22, en: "Report any accident immediately.", th: "หากเกิดอุบัติเหตุให้รายงานทันที", category: "ความปลอดภัย" },
+            { id: 23, en: "Mind your head / Watch your step.", th: "ระวังศีรษะ / ระวังการก้าวเดิน", category: "ความปลอดภัย" },
+            { id: 24, en: "Is the scaffold properly tagged?", th: "นั่งร้านติดป้ายตรวจสอบความปลอดภัยหรือยัง?", category: "ความปลอดภัย" },
+            { id: 25, en: "Keep the emergency exit clear.", th: "อย่าให้มีสิ่งกีดขวางทางออกฉุกเฉิน", category: "ความปลอดภัย" },
+            { id: 26, en: "Slippery floor, walk carefully.", th: "พื้นลื่น เดินอย่างระมัดระวัง", category: "ความปลอดภัย" },
+            { id: 27, en: "Where is the fire extinguisher?", th: "ถังดับเพลิงอยู่ที่ไหน?", category: "ความปลอดภัย" },
+            { id: 28, en: "This trench needs shoring.", th: "ร่องขุดนี้ต้องมีการค้ำยันดินกันพัง", category: "ความปลอดภัย" },
+            { id: 29, en: "Do you have a permit to work?", th: "คุณมีใบอนุญาตทำงาน (Permit) ไหม?", category: "ความปลอดภัย" },
+            { id: 30, en: "Make sure the power is off before touching it.", th: "ตัดไฟให้แน่ใจก่อนสัมผัสมัน", category: "ความปลอดภัย" },
+
+            // --- หมวด: การตรวจสอบ/คุณภาพ ---
             { id: 31, en: "Is there anything else to check?", th: "มีงานอย่างอื่นให้ตรวจสอบอีกไหม?", category: "การตรวจสอบ/คุณภาพ" },
             { id: 32, en: "What's the depth? / How deep is it?", th: "วัดความลึกได้เท่าไหร่?", category: "การตรวจสอบ/คุณภาพ" },
             { id: 33, en: "Make sure it's level.", th: "ตรวจสอบให้แน่ใจว่ามันได้ระดับ", category: "การตรวจสอบ/คุณภาพ" },
             { id: 34, en: "We need to double-check the measurements.", th: "เราต้องตรวจสอบขนาดซ้ำอีกครั้ง", category: "การตรวจสอบ/คุณภาพ" },
+            { id: 35, en: "Does it meet the specifications?", th: "มันตรงตามสเปคที่กำหนดไว้ไหม?", category: "การตรวจสอบ/คุณภาพ" },
+            { id: 36, en: "The dimensions are incorrect.", th: "ขนาด/มิติ ไม่ถูกต้อง", category: "การตรวจสอบ/คุณภาพ" },
+            { id: 37, en: "It's ready for final inspection.", th: "พร้อมสำหรับการตรวจสอบครั้งสุดท้ายแล้ว", category: "การตรวจสอบ/คุณภาพ" },
+            { id: 38, en: "Check the plumb line. Keep it vertical.", th: "ตรวจสอบลูกดิ่ง ให้อยู่ในแนวดิ่งตรงเสมอ", category: "การตรวจสอบ/คุณภาพ" },
             { id: 39, en: "This work is rejected.", th: "งานนี้ไม่ผ่านการประเมิน (ถูกตีกลับ)", category: "การตรวจสอบ/คุณภาพ" },
+            { id: 40, en: "Fix the defects before handover.", th: "แก้ไขข้อบกพร่อง (Defect) ก่อนส่งมอบงาน", category: "การตรวจสอบ/คุณภาพ" },
+            { id: 41, en: "Check the alignment again.", th: "ตรวจสอบแนวศูนย์อีกครั้ง", category: "การตรวจสอบ/คุณภาพ" },
+            { id: 42, en: "The tolerance is plus or minus 5 millimeters.", th: "ค่าความคลาดเคลื่อนที่ยอมรับได้คือบวกลบ 5 มิลลิเมตร", category: "การตรวจสอบ/คุณภาพ" },
+            { id: 43, en: "I need to see the material certificate.", th: "ผมขอตรวจสอบใบรับรองวัสดุหน่อย", category: "การตรวจสอบ/คุณภาพ" },
+            { id: 44, en: "Take some photos for the report.", th: "ถ่ายรูปไว้สำหรับทำรายงานด้วย", category: "การตรวจสอบ/คุณภาพ" },
+            { id: 45, en: "The surface is too rough.", th: "พื้นผิวนี้หยาบเกินไป", category: "การตรวจสอบ/คุณภาพ" },
+
+            // --- หมวด: งานคอนกรีต/เสาเข็ม ---
             { id: 46, en: "What time are we pouring concrete?", th: "เราจะเริ่มเทคอนกรีตกี่โมง?", category: "งานคอนกรีต/เสาเข็ม" },
             { id: 47, en: "Call me when there are 2 trucks left.", th: "เหลือ 2 คันสุดท้าย แล้วโทรมานะ", category: "งานคอนกรีต/เสาเข็ม" },
             { id: 48, en: "If you're ready to pour concrete, please go ahead.", th: "ถ้าพร้อมเทปูนแล้ว ลุยได้เลย", category: "งานคอนกรีต/เสาเข็ม" },
@@ -159,272 +88,460 @@
             { id: 50, en: "Do we have any piling work tomorrow?", th: "พรุ่งนี้เรามีงานเสาเข็มไหม?", category: "งานคอนกรีต/เสาเข็ม" },
             { id: 51, en: "This concrete is more than 2 hours old. Send it back.", th: "คอนกรีตนี้อายุเกิน 2 ชั่วโมงแล้ว ส่งกลับไปเลย", category: "งานคอนกรีต/เสาเข็ม" },
             { id: 52, en: "Keep the tremie pipe submerged.", th: "ให้ปลายท่อเทรมีจมอยู่ในเนื้อคอนกรีตเสมอ", category: "งานคอนกรีต/เสาเข็ม" },
+            { id: 53, en: "We hit a hard layer.", th: "เราเจาะเจอชั้นดินแข็ง", category: "งานคอนกรีต/เสาเข็ม" },
+            { id: 54, en: "Start pouring concrete.", th: "เริ่มเทคอนกรีตได้", category: "งานคอนกรีต/เสาเข็ม" },
+            { id: 55, en: "Use the vibrator properly.", th: "ใช้เครื่องจี้คอนกรีตให้ถูกต้องด้วย", category: "งานคอนกรีต/เสาเข็ม" },
+            { id: 56, en: "Don't add water to the concrete.", th: "ห้ามเติมน้ำลงในคอนกรีตเด็ดขาด", category: "งานคอนกรีต/เสาเข็ม" },
+            { id: 57, en: "The concrete is segregating.", th: "คอนกรีตเกิดการแยกตัวแล้ว", category: "งานคอนกรีต/เสาเข็ม" },
+            { id: 58, en: "Apply the curing compound.", th: "พ่นน้ำยาบ่มคอนกรีตด้วย", category: "งานคอนกรีต/เสาเข็ม" },
+            { id: 59, en: "Clean the bottom of the pile hole.", th: "ทำความสะอาดก้นหลุมเจาะเสาเข็มด้วย", category: "งานคอนกรีต/เสาเข็ม" },
+            { id: 60, en: "Strip the formwork carefully.", th: "ถอดแบบหล่อคอนกรีตอย่างระมัดระวัง", category: "งานคอนกรีต/เสาเข็ม" },
+
+            // --- หมวด: งานเหล็ก/โครงสร้าง ---
             { id: 61, en: "Check the rebar spacing.", th: "ตรวจสอบระยะห่างของเหล็กเสริม", category: "งานเหล็ก/โครงสร้าง" },
-            { id: 62, en: "The concrete covering is insufficient.", th: "ระยะหุ้มคอนกรีตไม่เพียงพอ", category: "งานเหล็ก/โครงสร้าง" },
+            { id: 62, en: "The concrete covering is insufficient.", th: "ระยะหุ้มคอนกรีต (Covering) ไม่เพียงพอ", category: "งานเหล็ก/โครงสร้าง" },
+            { id: 63, en: "Are the anchor bolts installed?", th: "ติดตั้งน็อตยึด (Anchor bolts) หรือยัง?", category: "งานเหล็ก/โครงสร้าง" },
             { id: 64, en: "Weld these two beams together.", th: "เชื่อมคานเหล็กสองตัวนี้เข้าด้วยกัน", category: "งานเหล็ก/โครงสร้าง" },
+            { id: 65, en: "Check the welding seam.", th: "ตรวจสอบรอยเชื่อม", category: "งานเหล็ก/โครงสร้าง" },
+            { id: 66, en: "Tie the rebars tightly.", th: "ผูกลวดเหล็กเสริมให้แน่นๆ", category: "งานเหล็ก/โครงสร้าง" },
+            { id: 67, en: "This column is slightly tilted.", th: "เสาต้นนี้เอียงไปนิดหน่อย", category: "งานเหล็ก/โครงสร้าง" },
+            { id: 68, en: "Apply anti-rust paint.", th: "ทาสีกันสนิมด้วย", category: "งานเหล็ก/โครงสร้าง" },
+            { id: 69, en: "The steel structure is fully erected.", th: "ติดตั้งโครงสร้างเหล็กเสร็จสมบูรณ์แล้ว", category: "งานเหล็ก/โครงสร้าง" },
+            { id: 70, en: "Tighten all the bolts.", th: "ขันน็อตทุกตัวให้แน่น", category: "งานเหล็ก/โครงสร้าง" },
+
+            // --- หมวด: งานระบบไฟฟ้า/ประปา (MEP) ---
             { id: 71, en: "Is the wiring complete?", th: "เดินสายไฟเสร็จหรือยัง?", category: "งานระบบ (MEP)" },
             { id: 72, en: "Check for water leaks.", th: "ตรวจสอบหารอยรั่วของน้ำ", category: "งานระบบ (MEP)" },
+            { id: 73, en: "Test the water pressure.", th: "ทดสอบแรงดันน้ำ", category: "งานระบบ (MEP)" },
+            { id: 74, en: "The main breaker is tripping.", th: "เบรกเกอร์หลักตัดการทำงาน", category: "งานระบบ (MEP)" },
+            { id: 75, en: "Install the PVC pipes here.", th: "ติดตั้งท่อ PVC ตรงนี้", category: "งานระบบ (MEP)" },
+            { id: 76, en: "Don't mix up the live and neutral wires.", th: "อย่าสลับสายไฟเส้นที่มีไฟกับเส้นนิวทรัล", category: "งานระบบ (MEP)" },
+            { id: 77, en: "Is the grounding system connected?", th: "ต่อระบบสายดินหรือยัง?", category: "งานระบบ (MEP)" },
+            { id: 78, en: "The AC duct needs insulation.", th: "ท่อแอร์ต้องหุ้มฉนวนกันความร้อน", category: "งานระบบ (MEP)" },
+            { id: 79, en: "Flush the pipe before use.", th: "ล้างระบบท่อก่อนเปิดใช้งาน", category: "งานระบบ (MEP)" },
+            { id: 80, en: "Check the voltage.", th: "ตรวจสอบแรงดันไฟฟ้า", category: "งานระบบ (MEP)" },
+
+            // --- หมวด: งานสถาปัตยกรรม/ตกแต่ง ---
             { id: 81, en: "Apply the primer first.", th: "ทาสีรองพื้นก่อน", category: "งานสถาปัตย์/ตกแต่ง" },
+            { id: 82, en: "The paint is peeling off.", th: "สีลอกล่อนออก", category: "งานสถาปัตย์/ตกแต่ง" },
+            { id: 83, en: "Install the ceiling panels.", th: "ติดตั้งแผ่นฝ้าเพดาน", category: "งานสถาปัตย์/ตกแต่ง" },
             { id: 84, en: "The tile joint is not straight.", th: "ร่องยาแนวกระเบื้องไม่ตรง", category: "งานสถาปัตย์/ตกแต่ง" },
+            { id: 85, en: "Use tile adhesive.", th: "ใช้กาวซีเมนต์ปูกระเบื้อง", category: "งานสถาปัตย์/ตกแต่ง" },
+            { id: 86, en: "Sand the wall before painting.", th: "ขัดกระดาษทรายที่ผนังก่อนทาสี", category: "งานสถาปัตย์/ตกแต่ง" },
+            { id: 87, en: "The drywall is damaged.", th: "แผ่นยิปซัมมีความเสียหาย", category: "งานสถาปัตย์/ตกแต่ง" },
+            { id: 88, en: "Seal the gaps with silicone.", th: "อุดรอยต่อด้วยซิลิโคน", category: "งานสถาปัตย์/ตกแต่ง" },
+            { id: 89, en: "Protect the finished floor.", th: "ป้องกันพื้นผิวที่ทำเสร็จแล้วด้วย (ปูพลาสติก/กระดาษกันรอย)", category: "งานสถาปัตย์/ตกแต่ง" },
+            { id: 90, en: "The door frame is scratching the floor.", th: "วงกบประตูขูดกับพื้น", category: "งานสถาปัตย์/ตกแต่ง" },
+
+            // --- หมวด: เครื่องมือ/เครื่องจักร ---
             { id: 91, en: "Hand me the tape measure.", th: "ส่งตลับเมตรให้ฉันหน่อย", category: "เครื่องมือ/เครื่องจักร" },
             { id: 92, en: "The excavator is ready.", th: "รถแบคโฮพร้อมแล้ว", category: "เครื่องมือ/เครื่องจักร" },
+            { id: 93, en: "Where is the power drill?", th: "สว่านไฟฟ้าอยู่ไหน?", category: "เครื่องมือ/เครื่องจักร" },
+            { id: 94, en: "The crane will lift the steel beams.", th: "เครนจะยกคานเหล็กขึ้น", category: "เครื่องมือ/เครื่องจักร" },
             { id: 95, en: "This machine is out of order.", th: "เครื่องจักรนี้เสีย ใช้งานไม่ได้", category: "เครื่องมือ/เครื่องจักร" },
+            { id: 96, en: "We are low on fuel.", th: "น้ำมันใกล้จะหมดแล้ว", category: "เครื่องมือ/เครื่องจักร" },
+            { id: 97, en: "Change the blade of the saw.", th: "เปลี่ยนใบเลื่อยด้วย", category: "เครื่องมือ/เครื่องจักร" },
+            { id: 98, en: "Return the tools after use.", th: "คืนเครื่องมือหลังจากใช้งานเสร็จ", category: "เครื่องมือ/เครื่องจักร" },
+            { id: 99, en: "Do the daily maintenance check.", th: "ทำการตรวจสอบบำรุงรักษาประจำวันด้วย", category: "เครื่องมือ/เครื่องจักร" },
+            { id: 100, en: "The battery is dead.", th: "แบตเตอรี่หมด", category: "เครื่องมือ/เครื่องจักร" },
+
+            // --- หมวด: วัสดุก่อสร้าง ---
             { id: 101, en: "We are running out of cement.", th: "ปูนซีเมนต์กำลังจะหมด", category: "วัสดุก่อสร้าง" },
             { id: 102, en: "The steel bars have arrived.", th: "เหล็กเส้นมาส่งแล้ว", category: "วัสดุก่อสร้าง" },
+            { id: 103, en: "Handle the tiles with care.", th: "หยิบจับกระเบื้องอย่างระมัดระวัง", category: "วัสดุก่อสร้าง" },
+            { id: 104, en: "Cut the rebar to this length.", th: "ตัดเหล็กข้ออ้อยให้ได้ความยาวเท่านี้", category: "วัสดุก่อสร้าง" },
+            { id: 105, en: "Order more bricks for tomorrow.", th: "สั่งอิฐเพิ่มสำหรับวันพรุ่งนี้", category: "วัสดุก่อสร้าง" },
+            { id: 106, en: "Store the cement in a dry place.", th: "เก็บปูนซีเมนต์ไว้ในที่แห้ง", category: "วัสดุก่อสร้าง" },
+            { id: 107, en: "This wood is warped.", th: "ไม้แผ่นนี้บิดงอ", category: "วัสดุก่อสร้าง" },
+            { id: 108, en: "Unload the materials here.", th: "เอาของ (วัสดุ) ลงตรงนี้เลย", category: "วัสดุก่อสร้าง" },
+            { id: 109, en: "Is there enough sand?", th: "มีทรายพอไหม?", category: "วัสดุก่อสร้าง" },
+            { id: 110, en: "Cover the materials with a tarpaulin.", th: "เอาผ้าใบคลุมวัสดุไว้ด้วย", category: "วัสดุก่อสร้าง" },
+
+            // --- หมวด: ปัญหา/คำสั่งทั่วไป ---
             { id: 111, en: "We have a problem here.", th: "เรามีปัญหาตรงนี้", category: "ปัญหา/คำสั่ง" },
+            { id: 112, en: "There is a leak in the pipe.", th: "มีรอยรั่วที่ท่อ", category: "ปัญหา/คำสั่ง" },
             { id: 113, en: "How can we fix this?", th: "เราจะแก้ไขสิ่งนี้ยังไงดี?", category: "ปัญหา/คำสั่ง" },
-            { id: 114, en: "As per the drawing.", th: "ให้ทำตามแบบแปลน", category: "ปัญหา/คำสั่ง" }
+            { id: 114, en: "As per the drawing.", th: "ให้ทำตามแบบแปลน", category: "ปัญหา/คำสั่ง" },
+            { id: 115, en: "Move it over there.", th: "ย้ายมันไปไว้ตรงนั้น", category: "ปัญหา/คำสั่ง" },
+            { id: 116, en: "Hold it steady.", th: "จับไว้นิ่งๆ", category: "ปัญหา/คำสั่ง" },
+            { id: 117, en: "Clean up the area after work.", th: "ทำความสะอาดพื้นที่หลังเลิกงานด้วย", category: "ปัญหา/คำสั่ง" },
+            { id: 118, en: "Tear it down and do it again.", th: "รื้อทิ้งแล้วทำใหม่", category: "ปัญหา/คำสั่ง" },
+            { id: 119, en: "What caused the delay?", th: "อะไรเป็นสาเหตุของความล่าช้า?", category: "ปัญหา/คำสั่ง" },
+            { id: 120, en: "Don't cut corners.", th: "อย่าทำงานลวกๆ / อย่าลดสเปค", category: "ปัญหา/คำสั่ง" },
+            { id: 121, en: "Raise it a little bit higher.", th: "ยกขึ้นสูงอีกนิดนึง", category: "ปัญหา/คำสั่ง" },
+            { id: 122, en: "Lower it down slowly.", th: "เอาลงช้าๆ", category: "ปัญหา/คำสั่ง" },
+            { id: 123, en: "Pass me the wrench.", th: "ส่งประแจให้ฉันหน่อย", category: "ปัญหา/คำสั่ง" },
+            { id: 124, en: "Make sure everything is secure.", th: "ดูให้แน่ใจว่าทุกอย่างยึดแน่นหนาแล้ว", category: "ปัญหา/คำสั่ง" },
+            { id: 125, en: "Wait for the concrete to set.", th: "รอให้คอนกรีตเซ็ตตัว (แข็งตัว) ก่อน", category: "ปัญหา/คำสั่ง" }
         ];
 
-        const CATEGORIES = ["ทั้งหมด", ...Array.from(new Set(PHRASES_DATA.map(item => item.category)))];
+        const CATEGORIES = ["ทั้งหมด", ...new Set(PHRASES_DATA.map(item => item.category))];
 
-        // ---------------- STATE ----------------
-        let isDarkMode = true;
-        let currentTab = 'learn';
-        let currentCategory = 'ทั้งหมด';
-        let quizQuestions = [];
-        let currentQIdx = 0;
-        let score = 0;
-        let selectedAnswerId = null;
+        const Icons = {
+            HardHat: () => (
+                <svg className="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3a9 9 0 00-9 9v1a3 3 0 003 3h12a3 3 0 003-3v-1a9 9 0 00-9-9z"></path>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v3m0 12v3m-9-9h3m12 0h3"></path>
+                </svg>
+            ),
+            Moon: () => (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
+            ),
+            Sun: () => (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.364 17.636l-.707.707M17.636 17.636l-.707-.707M6.364 6.364l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+                </svg>
+            ),
+            Search: () => (
+                <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            ),
+            Volume2: () => (
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+                </svg>
+            ),
+            BookOpen: () => (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477-4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+            ),
+            Brain: () => (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+            ),
+            RefreshCw: () => (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.253 8H18"></path>
+                </svg>
+            ),
+            ChevronRight: () => (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            )
+        };
 
-        // ---------------- INITIALIZE ----------------
-        document.addEventListener('DOMContentLoaded', () => {
-            renderCategories();
-            renderPhrases();
-            applyTheme();
-        });
+        function App() {
+            const [activeTab, setActiveTab] = useState('learn');
+            const [darkMode, setDarkMode] = useState(false);
 
-        // ---------------- AUDIO ----------------
-        function playAudio(text) {
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'en-US';
-                utterance.rate = 0.85;
-                window.speechSynthesis.speak(utterance);
-            }
-        }
-
-        // ---------------- THEME & TABS ----------------
-        function toggleDarkMode() {
-            isDarkMode = !isDarkMode;
-            applyTheme();
-            renderCategories();
-            renderPhrases();
-            if (currentTab === 'quiz' && quizQuestions.length > 0) renderQuizQuestion();
-        }
-
-        function applyTheme() {
-            const body = document.getElementById('app-body');
-            const header = document.getElementById('header-area');
-            const mainCont = document.getElementById('main-container');
-            const searchInput = document.getElementById('search-input');
-            const btnLearn = document.getElementById('btn-tab-learn');
-            const btnQuiz = document.getElementById('btn-tab-quiz');
-
-            // Icons
-            document.getElementById('icon-sun').classList.toggle('hidden', isDarkMode);
-            document.getElementById('icon-moon').classList.toggle('hidden', !isDarkMode);
-
-            if (isDarkMode) {
-                body.className = "bg-slate-950 text-slate-200 min-h-screen flex flex-col";
-                header.className = "bg-slate-900 border-b border-slate-800 text-white p-5 shadow-md sticky top-0 z-10 transition-colors duration-300";
-                mainCont.className = "max-w-4xl mx-auto w-full flex-1 shadow-sm p-4 rounded-b-2xl mb-12 transition-colors duration-300 bg-slate-900";
-                searchInput.className = "w-full pl-12 pr-4 py-4 border rounded-2xl outline-none text-lg transition-colors bg-slate-800 border-slate-700 text-slate-200 focus:ring-2 focus:ring-yellow-500 placeholder-slate-500";
-                
-                btnLearn.className = `flex-1 flex flex-col items-center justify-center gap-2 py-4 rounded-t-2xl text-lg font-bold transition-all ${currentTab === 'learn' ? 'active-tab-btn-dark' : 'inactive-tab-btn-dark'}`;
-                btnQuiz.className = `flex-1 flex flex-col items-center justify-center gap-2 py-4 rounded-t-2xl text-lg font-bold transition-all ${currentTab === 'quiz' ? 'active-tab-btn-dark' : 'inactive-tab-btn-dark'}`;
-                
-                document.getElementById('theme-btn').className = "p-3 rounded-full bg-yellow-400 text-slate-900 transition-colors";
-                
-                // Quiz Start UI
-                document.getElementById('quiz-icon-bg').className = "w-24 h-24 rounded-full flex items-center justify-center mb-8 shadow-inner bg-slate-800 text-yellow-400";
-                document.getElementById('quiz-title-1').className = "text-3xl font-bold mb-4 font-heading text-slate-100";
-                document.getElementById('quiz-desc').className = "mb-10 text-base px-6 leading-relaxed text-slate-400";
-                document.getElementById('btn-start-quiz').className = "w-full max-w-xs font-bold py-4 px-8 rounded-2xl shadow-md text-xl bg-yellow-500 text-slate-950 active:bg-yellow-400";
-                
-            } else {
-                body.className = "bg-slate-100 text-slate-800 min-h-screen flex flex-col";
-                header.className = "bg-blue-800 border-b border-blue-900 text-white p-5 shadow-md sticky top-0 z-10 transition-colors duration-300";
-                mainCont.className = "max-w-4xl mx-auto w-full flex-1 shadow-sm p-4 rounded-b-2xl mb-12 transition-colors duration-300 bg-white";
-                searchInput.className = "w-full pl-12 pr-4 py-4 border rounded-2xl outline-none text-lg transition-colors bg-white border-slate-300 text-slate-800 focus:ring-2 focus:ring-blue-500 placeholder-slate-400";
-                
-                btnLearn.className = `flex-1 flex flex-col items-center justify-center gap-2 py-4 rounded-t-2xl text-lg font-bold transition-all ${currentTab === 'learn' ? 'active-tab-btn-light' : 'inactive-tab-btn-light'}`;
-                btnQuiz.className = `flex-1 flex flex-col items-center justify-center gap-2 py-4 rounded-t-2xl text-lg font-bold transition-all ${currentTab === 'quiz' ? 'active-tab-btn-light' : 'inactive-tab-btn-light'}`;
-                
-                document.getElementById('theme-btn').className = "p-3 rounded-full bg-blue-700 text-white transition-colors";
-
-                // Quiz Start UI
-                document.getElementById('quiz-icon-bg').className = "w-24 h-24 rounded-full flex items-center justify-center mb-8 shadow-inner bg-blue-50 text-blue-800";
-                document.getElementById('quiz-title-1').className = "text-3xl font-bold mb-4 font-heading text-slate-800";
-                document.getElementById('quiz-desc').className = "mb-10 text-base px-6 leading-relaxed text-slate-500";
-                document.getElementById('btn-start-quiz').className = "w-full max-w-xs font-bold py-4 px-8 rounded-2xl shadow-md text-xl bg-blue-800 text-white active:bg-blue-700";
-            }
-        }
-
-        function switchTab(tabName) {
-            currentTab = tabName;
-            document.getElementById('tab-learn').classList.toggle('hidden-tab', tabName !== 'learn');
-            document.getElementById('tab-quiz').classList.toggle('hidden-tab', tabName !== 'quiz');
-            applyTheme(); // Refresh tab colors
-        }
-
-        // ---------------- LEARN TAB FUNCTIONS ----------------
-        function setCategory(cat) {
-            currentCategory = cat;
-            renderCategories();
-            renderPhrases();
-        }
-
-        function renderCategories() {
-            const container = document.getElementById('category-container');
-            container.innerHTML = CATEGORIES.map(cat => {
-                const isActive = currentCategory === cat;
-                let btnClass = "";
-                if (isActive) {
-                    btnClass = isDarkMode ? "bg-yellow-500 text-slate-900 font-bold" : "bg-blue-800 text-white font-bold";
+            useEffect(() => {
+                const body = document.getElementById('body-tag');
+                if (darkMode) {
+                    body.style.backgroundColor = '#0f172a';
                 } else {
-                    btnClass = isDarkMode ? "bg-slate-800 text-slate-400" : "bg-slate-100 text-slate-600";
+                    body.style.backgroundColor = '#f1f5f9';
                 }
-                return `<button onclick="setCategory('${cat}')" class="px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${btnClass}">${cat}</button>`;
-            }).join('');
-        }
+            }, [darkMode]);
 
-        function renderPhrases() {
-            const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            const filtered = PHRASES_DATA.filter(p => {
-                const matchSearch = p.en.toLowerCase().includes(searchTerm) || p.th.includes(searchTerm);
-                const matchCat = currentCategory === 'ทั้งหมด' || p.category === currentCategory;
-                return matchSearch && matchCat;
-            });
+            return (
+                <div className={`min-h-screen flex flex-col smooth-transition ${darkMode ? 'bg-slate-950 text-slate-200' : 'bg-slate-100 text-slate-800'}`}>
+                    <header className={`${darkMode ? 'bg-slate-900 border-b border-slate-800' : 'bg-blue-800'} text-white p-4 shadow-md sticky top-0 z-10 smooth-transition`}>
+                        <div className="max-w-4xl mx-auto flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <Icons.HardHat />
+                                <div>
+                                    <h1 className="text-2xl font-bold heading-font tracking-wide">ConstrucTalk v1.1</h1>
+                                    <p className="text-sm text-blue-200">แอปพลิเคชันฝึกภาษาอังกฤษสำหรับงานก่อสร้าง</p>
+                                </div>
+                            </div>
+                            <button 
+                                onClick={() => setDarkMode(!darkMode)}
+                                className={`p-2 rounded-full transition-all ${darkMode ? 'bg-yellow-400 text-slate-900 hover:bg-yellow-300' : 'bg-blue-700 text-white hover:bg-blue-600'}`}
+                                title={darkMode ? "สลับเป็นโหมดสว่าง" : "สลับเป็นโหมดมืด"}
+                            >
+                                {darkMode ? <Icons.Sun /> : <Icons.Moon />}
+                            </button>
+                        </div>
+                    </header>
 
-            const countEl = document.getElementById('phrase-count');
-            countEl.innerText = `พบทั้งหมด ${filtered.length} ประโยค`;
-            countEl.className = `text-base font-bold ${isDarkMode ? 'text-slate-500' : 'text-slate-400'}`;
-
-            const listEl = document.getElementById('phrase-list');
-            if (filtered.length === 0) {
-                listEl.innerHTML = `<div class="col-span-full text-center py-16 text-slate-500 font-medium text-lg italic">ไม่พบข้อมูลประโยคที่คุณต้องการ...</div>`;
-                return;
-            }
-
-            listEl.innerHTML = filtered.map(p => {
-                const cardClass = isDarkMode ? "border-slate-700 bg-slate-800/60" : "border-slate-200 bg-slate-50 shadow-sm";
-                const badgeClass = isDarkMode ? "bg-slate-700 text-slate-300" : "bg-slate-200 text-slate-700";
-                const enClass = isDarkMode ? "text-slate-100" : "text-slate-900";
-                const thClass = isDarkMode ? "text-slate-400" : "text-slate-600";
-                const btnClass = isDarkMode ? "text-yellow-400 bg-slate-700" : "text-blue-800 bg-blue-100";
-
-                return `
-                <div class="border rounded-2xl p-5 transition-all flex flex-col justify-between ${cardClass}">
-                    <div>
-                        <span class="inline-block px-3 py-1 text-xs font-bold rounded-md mb-3 ${badgeClass}">${p.category}</span>
-                        <p class="font-black text-2xl mb-2 leading-snug ${enClass}">${p.en}</p>
-                        <p class="text-lg ${thClass}">${p.th}</p>
+                    <div className="max-w-4xl mx-auto flex w-full p-4 pb-0 gap-2 mt-2">
+                        <button 
+                            onClick={() => setActiveTab('learn')}
+                            className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-t-xl text-base font-bold transition-all ${
+                                activeTab === 'learn' 
+                                ? (darkMode ? 'bg-slate-900 text-yellow-400 border-t-4 border-yellow-400' : 'bg-white text-blue-800 border-t-4 border-blue-800') 
+                                : (darkMode ? 'bg-slate-800 text-slate-500' : 'bg-slate-200 text-slate-600')
+                            }`}
+                        >
+                            <Icons.BookOpen /> คลังประโยค
+                        </button>
+                        <button 
+                            onClick={() => setActiveTab('quiz')}
+                            className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-t-xl text-base font-bold transition-all ${
+                                activeTab === 'quiz' 
+                                ? (darkMode ? 'bg-slate-900 text-yellow-400 border-t-4 border-yellow-400' : 'bg-white text-blue-800 border-t-4 border-blue-800') 
+                                : (darkMode ? 'bg-slate-800 text-slate-500' : 'bg-slate-200 text-slate-600')
+                            }`}
+                        >
+                            <Icons.Brain /> ทดสอบความจำ
+                        </button>
                     </div>
-                    <button onclick="playAudio('${p.en.replace(/'/g, "\'")}')" class="mt-6 self-end flex items-center gap-2 px-5 py-3 rounded-xl text-base font-bold transition-all ${btnClass}">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg> 
-                        ฟังสำเนียง
-                    </button>
+
+                    <main className={`max-w-4xl mx-auto w-full flex-1 shadow-sm p-4 rounded-b-xl mb-8 smooth-transition ${darkMode ? 'bg-slate-900' : 'bg-white'}`}>
+                        {activeTab === 'learn' ? <LearnTab darkMode={darkMode} /> : <QuizTab darkMode={darkMode} />}
+                    </main>
                 </div>
-                `;
-            }).join('');
+            );
         }
 
-        // ---------------- QUIZ FUNCTIONS ----------------
-        function startQuiz() {
-            let shuffled = [...PHRASES_DATA].sort(() => 0.5 - Math.random());
-            quizQuestions = shuffled.slice(0, 10).map(q => {
-                let otherOptions = shuffled.filter(opt => opt.id !== q.id).sort(() => 0.5 - Math.random()).slice(0, 3);
-                let options = [q, ...otherOptions].sort(() => 0.5 - Math.random());
-                return { ...q, options };
-            });
-            currentQIdx = 0;
-            score = 0;
-            selectedAnswerId = null;
+        function LearnTab({ darkMode }) {
+            const [search, setSearch] = useState('');
+            const [selectedCategory, setSelectedCategory] = useState('ทั้งหมด');
 
-            document.getElementById('quiz-start').classList.add('hidden-tab');
-            document.getElementById('quiz-end').classList.add('hidden-tab');
-            document.getElementById('quiz-playing').classList.remove('hidden-tab');
-            
-            renderQuizQuestion();
-        }
+            const filteredPhrases = useMemo(() => {
+                return PHRASES_DATA.filter(phrase => {
+                    const matchesSearch = phrase.en.toLowerCase().includes(search.toLowerCase()) || phrase.th.includes(search);
+                    const matchesCategory = selectedCategory === 'ทั้งหมด' || phrase.category === selectedCategory;
+                    return matchesSearch && matchesCategory;
+                });
+            }, [search, selectedCategory]);
 
-        function renderQuizQuestion() {
-            const q = quizQuestions[currentQIdx];
-            document.getElementById('quiz-progress-text').innerText = `คำถามข้อที่ ${currentQIdx + 1} / 10`;
-            document.getElementById('quiz-score-badge').innerText = `คะแนน: ${score}`;
-            document.getElementById('quiz-question-text').innerText = q.th;
-
-            // Apply Theme to Quiz Header
-            document.getElementById('quiz-progress-text').className = `text-sm font-bold uppercase tracking-wider ${isDarkMode ? 'text-slate-500' : 'text-slate-400'}`;
-            document.getElementById('quiz-score-badge').className = `font-bold px-4 py-2 rounded-full text-sm ${isDarkMode ? 'bg-yellow-900 text-yellow-300' : 'bg-yellow-100 text-yellow-800'}`;
-            document.getElementById('quiz-question-box').className = `p-8 rounded-2xl mb-8 shadow-md text-center border ${isDarkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-800 border-slate-700 text-white'}`;
-
-            const optionsHTML = q.options.map(opt => {
-                let btnClass = "w-full text-left p-5 rounded-2xl border-2 font-bold transition-all text-lg flex justify-between items-center ";
-                let suffix = "";
-                
-                if (!selectedAnswerId) {
-                    btnClass += isDarkMode ? "border-slate-700 bg-slate-800 text-slate-200" : "border-slate-200 bg-white text-slate-700";
-                } else {
-                    if (opt.id === q.id) {
-                        btnClass += "border-green-500 bg-green-50 text-green-900 font-black";
-                        if (selectedAnswerId === opt.id) suffix = `<span class="text-green-600 text-base font-black ml-3 shrink-0">✓ ถูก</span>`;
-                    } else if (selectedAnswerId === opt.id) {
-                        btnClass += "border-red-500 bg-red-50 text-red-900 font-black";
-                        suffix = `<span class="text-red-600 text-base font-black ml-3 shrink-0">✗ ผิด</span>`;
-                    } else {
-                        btnClass += isDarkMode ? "border-slate-900 bg-slate-900 text-slate-600 opacity-50" : "border-slate-100 bg-white text-slate-300 opacity-50";
-                    }
+            const playAudio = (text) => {
+                if ('speechSynthesis' in window) {
+                    window.speechSynthesis.cancel();
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.lang = 'en-US';
+                    utterance.rate = 0.85;
+                    window.speechSynthesis.speak(utterance);
                 }
+            };
 
-                return `<button ${selectedAnswerId ? 'disabled' : ''} onclick="handleAnswer(${opt.id})" class="${btnClass}"><span class="leading-snug">${opt.en}</span>${suffix}</button>`;
-            }).join('');
+            return (
+                <div className="space-y-6">
+                    <div className="space-y-3">
+                        <div className="relative">
+                            <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
+                                <Icons.Search />
+                            </div>
+                            <input 
+                                type="text" 
+                                placeholder="ค้นหาประโยค (ปูน, เข็ม, ตรวจ, น้ำรั่ว)..." 
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                className={`w-full pl-10 pr-4 py-4 border rounded-xl outline-none text-base md:text-lg smooth-transition ${
+                                    darkMode 
+                                    ? 'bg-slate-800 border-slate-700 text-slate-200 focus:ring-2 focus:ring-yellow-500 placeholder-slate-500' 
+                                    : 'bg-white border-slate-300 text-slate-800 focus:ring-2 focus:ring-blue-500'
+                                }`}
+                            />
+                        </div>
+                        
+                        <div className="flex flex-wrap gap-1.5">
+                            {CATEGORIES.map(cat => (
+                                <button
+                                    key={cat}
+                                    onClick={() => setSelectedCategory(cat)}
+                                    className={`px-3 py-1.5 rounded-lg text-sm md:text-base font-medium transition-all ${
+                                        selectedCategory === cat 
+                                          ? (darkMode ? 'bg-yellow-500 text-slate-900 font-bold' : 'bg-blue-800 text-white font-bold') 
+                                          : (darkMode ? 'bg-slate-800 text-slate-400 hover:bg-slate-700' : 'bg-slate-100 text-slate-600 hover:bg-slate-200')
+                                    }`}
+                                >
+                                    {cat}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
 
-            document.getElementById('quiz-options').innerHTML = optionsHTML;
+                    <div className={`text-sm font-medium ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>พบ {filteredPhrases.length} ประโยค</div>
 
-            const nextContainer = document.getElementById('quiz-next-container');
-            if (selectedAnswerId) {
-                nextContainer.classList.remove('hidden-tab');
-                document.getElementById('btn-next-text').innerText = currentQIdx < 9 ? 'ไปข้อถัดไป' : 'ดูคะแนนสรุป';
-                document.getElementById('btn-next-quiz').className = `flex items-center justify-center gap-2 font-bold py-4 px-6 rounded-2xl shadow-sm text-lg w-full md:w-auto ${isDarkMode ? 'bg-yellow-500 text-slate-950' : 'bg-blue-800 text-white'}`;
-            } else {
-                nextContainer.classList.add('hidden-tab');
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {filteredPhrases.length > 0 ? (
+                            filteredPhrases.map(phrase => (
+                                <div key={phrase.id} className={`border rounded-xl p-4 transition-all flex flex-col justify-between ${
+                                    darkMode 
+                                    ? 'border-slate-800 bg-slate-800/40 hover:border-slate-600' 
+                                    : 'border-slate-200 bg-slate-50/50 hover:border-blue-300 shadow-sm'
+                                }`}>
+                                    <div>
+                                        <span className={`inline-block px-2 py-0.5 text-xs font-bold rounded mb-2 ${
+                                            darkMode ? 'bg-slate-700 text-slate-300' : 'bg-slate-200 text-slate-700'
+                                        }`}>
+                                            {phrase.category}
+                                        </span>
+                                        <p className={`font-bold text-xl md:text-2xl mb-1 leading-snug ${darkMode ? 'text-slate-100' : 'text-slate-900'}`}>{phrase.en}</p>
+                                        <p className={`${darkMode ? 'text-slate-400' : 'text-slate-600'} text-base md:text-lg`}>{phrase.th}</p>
+                                    </div>
+                                    <button 
+                                        onClick={() => playAudio(phrase.en)}
+                                        className={`mt-4 self-end flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-bold transition-all ${
+                                            darkMode 
+                                            ? 'text-yellow-400 bg-slate-700 hover:bg-slate-600' 
+                                            : 'text-blue-800 bg-blue-50 hover:bg-blue-100'
+                                        }`}
+                                    >
+                                        <Icons.Volume2 /> ฟังเสียง
+                                    </button>
+                                </div>
+                            ))
+                        ) : (
+                            <div className="col-span-full text-center py-12 text-slate-500 font-medium text-base italic">
+                                ไม่พบข้อมูลประโยคที่คุณต้องการ...
+                            </div>
+                        )}
+                    </div>
+                </div>
+            );
+        }
+
+        function QuizTab({ darkMode }) {
+            const [gameState, setGameState] = useState('start');
+            const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
+            const [score, setScore] = useState(0);
+            const [questions, setQuestions] = useState([]);
+            const [selectedAnswer, setSelectedAnswer] = useState(null);
+            const [isCorrect, setIsCorrect] = useState(null);
+
+            const startQuiz = () => {
+                const shuffled = [...PHRASES_DATA].sort(() => 0.5 - Math.random());
+                const selected = shuffled.slice(0, 10).map(q => {
+                    const otherOptions = shuffled.filter(opt => opt.id !== q.id).sort(() => 0.5 - Math.random()).slice(0, 3);
+                    const options = [q, ...otherOptions].sort(() => 0.5 - Math.random());
+                    return { ...q, options };
+                });
+                setQuestions(selected);
+                setCurrentQuestionIdx(0);
+                setScore(0);
+                setSelectedAnswer(null);
+                setIsCorrect(null);
+                setGameState('playing');
+            };
+
+            const handleAnswer = (option) => {
+                if (selectedAnswer) return;
+                const correct = option.id === questions[currentQuestionIdx].id;
+                setSelectedAnswer(option);
+                setIsCorrect(correct);
+                if (correct) setScore(prev => prev + 1);
+            };
+
+            const nextQuestion = () => {
+                if (currentQuestionIdx < questions.length - 1) {
+                    setCurrentQuestionIdx(prev => prev + 1);
+                    setSelectedAnswer(null);
+                    setIsCorrect(null);
+                } else {
+                    setGameState('end');
+                }
+            };
+
+            if (gameState === 'start') {
+                return (
+                    <div className="flex flex-col items-center justify-center py-16 text-center animate-in fade-in">
+                        <div className={`w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-inner ${
+                            darkMode ? 'bg-slate-800 text-yellow-400' : 'bg-blue-50 text-blue-800'
+                        }`}>
+                            <Icons.Brain />
+                        </div>
+                        <h2 className={`text-2xl md:text-3xl font-bold mb-2 heading-font ${darkMode ? 'text-slate-100' : 'text-slate-800'}`}>พร้อมทดสอบความแม่นยำหรือยัง?</h2>
+                        <p className={`mb-8 max-w-md text-sm md:text-base px-4 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+                            ระบบจะสุ่มประโยคภาษาไทยขึ้นมา 10 ข้อ ให้คุณเลือกประโยคภาษาอังกฤษที่ตรงที่สุด
+                        </p>
+                        <button 
+                            onClick={startQuiz}
+                            className={`font-bold py-3 px-8 rounded-xl shadow-md transition-all hover:scale-105 text-base md:text-lg ${
+                                darkMode ? 'bg-yellow-500 text-slate-950' : 'bg-blue-800 text-white'
+                            }`}
+                        >
+                            เริ่มทำแบบทดสอบ
+                        </button>
+                    </div>
+                );
             }
-        }
 
-        function handleAnswer(optId) {
-            if (selectedAnswerId) return;
-            selectedAnswerId = optId;
-            const q = quizQuestions[currentQIdx];
-            if (optId === q.id) score++;
-            renderQuizQuestion();
-        }
-
-        function nextQuestion() {
-            if (currentQIdx < 9) {
-                currentQIdx++;
-                selectedAnswerId = null;
-                renderQuizQuestion();
-            } else {
-                showQuizEnd();
+            if (gameState === 'end') {
+                return (
+                    <div className="flex flex-col items-center justify-center py-16 text-center">
+                        <div className="text-5xl mb-4">
+                            {score >= 8 ? '🏅 เก่งมาก!' : score >= 5 ? '👍 ใช้ได้เลย' : '🏗️ ฝึกอีกนิดนะ'}
+                        </div>
+                        <h2 className={`text-3xl font-bold mb-1 heading-font ${darkMode ? 'text-slate-100' : 'text-slate-800'}`}>สรุปคะแนน</h2>
+                        <p className={`mb-8 text-base font-medium ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+                            คุณได้คะแนน <span className={`font-bold text-xl ${darkMode ? 'text-yellow-400' : 'text-blue-800'}`}>{score}</span> เต็ม 10
+                        </p>
+                        <button 
+                            onClick={startQuiz}
+                            className={`flex items-center gap-2 font-bold py-2.5 px-6 rounded-xl transition-all text-base ${
+                                darkMode ? 'bg-slate-700 text-white hover:bg-slate-600' : 'bg-slate-800 text-white hover:bg-slate-900'
+                            }`}
+                        >
+                            <Icons.RefreshCw /> เล่นใหม่อีกรอบ
+                        </button>
+                    </div>
+                );
             }
+
+            const question = questions[currentQuestionIdx];
+
+            return (
+                <div className="max-w-2xl mx-auto py-4">
+                    <div className="flex justify-between items-center mb-4 px-1">
+                        <span className={`text-sm font-bold uppercase tracking-wider ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
+                            คำถาม {currentQuestionIdx + 1} / 10
+                        </span>
+                        <span className={`font-bold px-3 py-1 rounded-full text-sm ${darkMode ? 'bg-yellow-900 text-yellow-300' : 'bg-yellow-100 text-yellow-800'}`}>
+                            คะแนน: {score}
+                        </span>
+                    </div>
+
+                    <div className={`p-6 md:p-8 rounded-xl mb-6 shadow-md text-center border ${
+                        darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-800 border-slate-700 text-white'
+                    }`}>
+                        <span className="inline-block px-2 py-0.5 bg-slate-700 text-slate-300 text-xs font-bold rounded mb-2">ความหมายภาษาไทย</span>
+                        <h3 className="text-xl md:text-2xl font-bold leading-relaxed">{question.th}</h3>
+                    </div>
+
+                    <div className="space-y-2.5">
+                        {question.options.map((opt, idx) => {
+                            let btnClass = "w-full text-left p-4 rounded-xl border-2 font-bold transition-all text-base md:text-lg flex justify-between items-center ";
+                            if (!selectedAnswer) {
+                                btnClass += darkMode 
+                                    ? "border-slate-800 bg-slate-800 text-slate-300 hover:border-yellow-500 hover:bg-slate-750" 
+                                    : "border-slate-200 bg-white text-slate-700 hover:border-blue-500 hover:bg-blue-50/50";
+                            } else {
+                                if (opt.id === question.id) {
+                                    btnClass += "border-green-500 bg-green-50 text-green-900 font-bold";
+                                } else if (selectedAnswer.id === opt.id && !isCorrect) {
+                                    btnClass += "border-red-500 bg-red-50 text-red-900 font-bold";
+                                } else {
+                                    btnClass += darkMode ? "border-slate-900 bg-slate-900 text-slate-600 opacity-40" : "border-slate-100 bg-white text-slate-300 opacity-60";
+                                }
+                            }
+                            return (
+                                <button key={idx} onClick={() => handleAnswer(opt)} disabled={!!selectedAnswer} className={btnClass}>
+                                    <span>{opt.en}</span>
+                                    {selectedAnswer && opt.id === question.id && <span className="text-green-600 text-sm font-bold ml-2">✓ ถูก</span>}
+                                    {selectedAnswer && selectedAnswer.id === opt.id && !isCorrect && <span className="text-red-600 text-sm font-bold ml-2">✗ ผิด</span>}
+                                </button>
+                            );
+                        })}
+                    </div>
+
+                    {selectedAnswer && (
+                        <div className="mt-6 flex justify-end">
+                            <button 
+                                onClick={nextQuestion}
+                                className={`flex items-center gap-1 font-bold py-2.5 px-5 rounded-xl shadow-sm transition-all text-base ${
+                                    darkMode ? 'bg-yellow-500 text-slate-950' : 'bg-blue-800 text-white'
+                                }`}
+                            >
+                                {currentQuestionIdx < questions.length - 1 ? 'ข้อต่อไป' : 'ดูคะแนนสรุป'} <Icons.ChevronRight />
+                            </button>
+                        </div>
+                    )}
+                </div>
+            );
         }
 
-        function showQuizEnd() {
-            document.getElementById('quiz-playing').classList.add('hidden-tab');
-            document.getElementById('quiz-end').classList.remove('hidden-tab');
-            
-            document.getElementById('quiz-final-score').innerText = score;
-            let emoji = score >= 8 ? '🏅 เก่งมาก!' : (score >= 5 ? '👍 ใช้ได้เลย' : '🏗️ ฝึกอีกนิดนะ');
-            document.getElementById('quiz-final-emoji').innerText = emoji;
-
-            document.getElementById('quiz-final-title').className = `text-4xl font-bold mb-3 font-heading ${isDarkMode ? 'text-slate-100' : 'text-slate-800'}`;
-            document.getElementById('quiz-final-desc').className = `mb-10 text-lg font-medium ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`;
-            document.getElementById('quiz-final-score').className = `font-black text-3xl ${isDarkMode ? 'text-yellow-400' : 'text-blue-800'}`;
-            document.getElementById('btn-restart-quiz').className = `flex items-center justify-center gap-3 w-full max-w-xs font-bold py-4 px-6 rounded-2xl text-xl ${isDarkMode ? 'bg-slate-700 text-white' : 'bg-slate-800 text-white'}`;
-        }
+        const rootElement = document.getElementById('root');
+        const root = ReactDOM.createRoot(rootElement);
+        root.render(<App />);
     </script>
 </body>
 </html>
