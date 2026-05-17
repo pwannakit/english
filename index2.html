@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+html_content = """<!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConstrucTalk - แอปฝึกภาษาอังกฤษก่อสร้าง</title>
-    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=VyEAsCrMZiNEPcdEz_eEUBLDBbMiqHEDKruPJ9JZmQoa4Ijk5b90QlqEN7ZI_SbCYMqS3pt3LCmawdOvxbGPp9EM0sV1MZ7oZBVq2FizaN1LN5ZrxaVKVDjZ-y3vbB_ROf2yfHX_S5GamnBJyNDSIQgzBx2EBHiOHRRtZSvXZYj490U-Det4o2lAYVUz4PhDOml9KpCYX-U-9eCIeIeP6tmQk42HbePsfqdj79zwxDl1Xc9NYSopnh1DxYxeV2l2jtOFKcBLm8-5JPCFea1Q0g9Tp3udSTbVl1e-UrcLR6g_QJUB8QOI3RqxKqE1Vy1l2do6wb6DaM18VYXpX1DjJQ" charset="UTF-8"></script><script src="https://cdn.tailwindcss.com"></script>
+    <title>ConstrucTalk - แอปฝึกภาษาอังกฤษก่อสร้าง (Dark Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -206,7 +206,7 @@
             ),
             BookOpen: () => (
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477-4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                 </svg>
             ),
             Brain: () => (
@@ -246,8 +246,8 @@
                             <div className="flex items-center gap-3">
                                 <Icons.HardHat />
                                 <div>
-                                    <h1 className="text-2xl font-bold heading-font tracking-wide">ConstrucTalk v1.1</h1>
-                                    <p className="text-sm text-blue-200">แอปพลิเคชันฝึกภาษาอังกฤษสำหรับงานก่อสร้าง</p>
+                                    <h1 className="text-xl font-bold heading-font tracking-wide">ConstrucTalk v1.1</h1>
+                                    <p className="text-xs text-blue-200">แอปพลิเคชันฝึกภาษาอังกฤษสำหรับงานก่อสร้าง</p>
                                 </div>
                             </div>
                             <button 
@@ -263,23 +263,23 @@
                     <div className="max-w-4xl mx-auto flex w-full p-4 pb-0 gap-2 mt-2">
                         <button 
                             onClick={() => setActiveTab('learn')}
-                            className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-t-xl text-base font-bold transition-all ${
+                            className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-t-xl font-medium transition-all ${
                                 activeTab === 'learn' 
                                 ? (darkMode ? 'bg-slate-900 text-yellow-400 border-t-4 border-yellow-400' : 'bg-white text-blue-800 border-t-4 border-blue-800') 
                                 : (darkMode ? 'bg-slate-800 text-slate-500' : 'bg-slate-200 text-slate-600')
                             }`}
                         >
-                            <Icons.BookOpen /> คลังประโยค
+                            <Icons.BookOpen /> คลังประโยคหน้างาน
                         </button>
                         <button 
                             onClick={() => setActiveTab('quiz')}
-                            className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-t-xl text-base font-bold transition-all ${
+                            className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-t-xl font-medium transition-all ${
                                 activeTab === 'quiz' 
                                 ? (darkMode ? 'bg-slate-900 text-yellow-400 border-t-4 border-yellow-400' : 'bg-white text-blue-800 border-t-4 border-blue-800') 
                                 : (darkMode ? 'bg-slate-800 text-slate-500' : 'bg-slate-200 text-slate-600')
                             }`}
                         >
-                            <Icons.Brain /> ทดสอบความจำ
+                            <Icons.Brain /> แบบทดสอบความจำ
                         </button>
                     </div>
 
@@ -324,7 +324,7 @@
                                 placeholder="ค้นหาประโยค (ปูน, เข็ม, ตรวจ, น้ำรั่ว)..." 
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
-                                className={`w-full pl-10 pr-4 py-4 border rounded-xl outline-none text-base md:text-lg smooth-transition ${
+                                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none text-sm md:text-base smooth-transition ${
                                     darkMode 
                                     ? 'bg-slate-800 border-slate-700 text-slate-200 focus:ring-2 focus:ring-yellow-500 placeholder-slate-500' 
                                     : 'bg-white border-slate-300 text-slate-800 focus:ring-2 focus:ring-blue-500'
@@ -337,7 +337,7 @@
                                 <button
                                     key={cat}
                                     onClick={() => setSelectedCategory(cat)}
-                                    className={`px-3 py-1.5 rounded-lg text-sm md:text-base font-medium transition-all ${
+                                    className={`px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all ${
                                         selectedCategory === cat 
                                           ? (darkMode ? 'bg-yellow-500 text-slate-900 font-bold' : 'bg-blue-800 text-white font-bold') 
                                           : (darkMode ? 'bg-slate-800 text-slate-400 hover:bg-slate-700' : 'bg-slate-100 text-slate-600 hover:bg-slate-200')
@@ -349,7 +349,7 @@
                         </div>
                     </div>
 
-                    <div className={`text-sm font-medium ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>พบ {filteredPhrases.length} ประโยค</div>
+                    <div className={`text-xs font-medium ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>พบ {filteredPhrases.length} ประโยค</div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {filteredPhrases.length > 0 ? (
@@ -360,17 +360,17 @@
                                     : 'border-slate-200 bg-slate-50/50 hover:border-blue-300 shadow-sm'
                                 }`}>
                                     <div>
-                                        <span className={`inline-block px-2 py-0.5 text-xs font-bold rounded mb-2 ${
+                                        <span className={`inline-block px-2 py-0.5 text-[10px] font-bold rounded mb-2 ${
                                             darkMode ? 'bg-slate-700 text-slate-300' : 'bg-slate-200 text-slate-700'
                                         }`}>
                                             {phrase.category}
                                         </span>
-                                        <p className={`font-bold text-xl md:text-2xl mb-1 leading-snug ${darkMode ? 'text-slate-100' : 'text-slate-900'}`}>{phrase.en}</p>
-                                        <p className={`${darkMode ? 'text-slate-400' : 'text-slate-600'} text-base md:text-lg`}>{phrase.th}</p>
+                                        <p className={`font-bold text-base md:text-lg mb-1 leading-snug ${darkMode ? 'text-slate-100' : 'text-slate-900'}`}>{phrase.en}</p>
+                                        <p className={`${darkMode ? 'text-slate-400' : 'text-slate-600'} text-xs md:text-sm`}>{phrase.th}</p>
                                     </div>
                                     <button 
                                         onClick={() => playAudio(phrase.en)}
-                                        className={`mt-4 self-end flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-bold transition-all ${
+                                        className={`mt-4 self-end flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                                             darkMode 
                                             ? 'text-yellow-400 bg-slate-700 hover:bg-slate-600' 
                                             : 'text-blue-800 bg-blue-50 hover:bg-blue-100'
@@ -381,7 +381,7 @@
                                 </div>
                             ))
                         ) : (
-                            <div className="col-span-full text-center py-12 text-slate-500 font-medium text-base italic">
+                            <div className="col-span-full text-center py-12 text-slate-500 font-medium text-sm italic">
                                 ไม่พบข้อมูลประโยคที่คุณต้องการ...
                             </div>
                         )}
@@ -439,13 +439,13 @@
                         }`}>
                             <Icons.Brain />
                         </div>
-                        <h2 className={`text-2xl md:text-3xl font-bold mb-2 heading-font ${darkMode ? 'text-slate-100' : 'text-slate-800'}`}>พร้อมทดสอบความแม่นยำหรือยัง?</h2>
-                        <p className={`mb-8 max-w-md text-sm md:text-base px-4 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+                        <h2 className={`text-xl md:text-2xl font-bold mb-2 heading-font ${darkMode ? 'text-slate-100' : 'text-slate-800'}`}>พร้อมทดสอบความแม่นยำหรือยัง?</h2>
+                        <p className={`mb-8 max-w-md text-xs md:text-sm px-4 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
                             ระบบจะสุ่มประโยคภาษาไทยขึ้นมา 10 ข้อ ให้คุณเลือกประโยคภาษาอังกฤษที่ตรงที่สุด
                         </p>
                         <button 
                             onClick={startQuiz}
-                            className={`font-bold py-3 px-8 rounded-xl shadow-md transition-all hover:scale-105 text-base md:text-lg ${
+                            className={`font-bold py-3 px-8 rounded-xl shadow-md transition-all hover:scale-105 text-sm ${
                                 darkMode ? 'bg-yellow-500 text-slate-950' : 'bg-blue-800 text-white'
                             }`}
                         >
@@ -461,13 +461,13 @@
                         <div className="text-5xl mb-4">
                             {score >= 8 ? '🏅 เก่งมาก!' : score >= 5 ? '👍 ใช้ได้เลย' : '🏗️ ฝึกอีกนิดนะ'}
                         </div>
-                        <h2 className={`text-3xl font-bold mb-1 heading-font ${darkMode ? 'text-slate-100' : 'text-slate-800'}`}>สรุปคะแนน</h2>
-                        <p className={`mb-8 text-base font-medium ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-                            คุณได้คะแนน <span className={`font-bold text-xl ${darkMode ? 'text-yellow-400' : 'text-blue-800'}`}>{score}</span> เต็ม 10
+                        <h2 className={`text-2xl font-bold mb-1 heading-font ${darkMode ? 'text-slate-100' : 'text-slate-800'}`}>สรุปคะแนน</h2>
+                        <p className={`mb-8 text-sm font-medium ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+                            คุณได้คะแนน <span className={`font-bold text-lg ${darkMode ? 'text-yellow-400' : 'text-blue-800'}`}>{score}</span> เต็ม 10
                         </p>
                         <button 
                             onClick={startQuiz}
-                            className={`flex items-center gap-2 font-bold py-2.5 px-6 rounded-xl transition-all text-base ${
+                            className={`flex items-center gap-2 font-bold py-2.5 px-6 rounded-xl transition-all text-sm ${
                                 darkMode ? 'bg-slate-700 text-white hover:bg-slate-600' : 'bg-slate-800 text-white hover:bg-slate-900'
                             }`}
                         >
@@ -482,10 +482,10 @@
             return (
                 <div className="max-w-2xl mx-auto py-4">
                     <div className="flex justify-between items-center mb-4 px-1">
-                        <span className={`text-sm font-bold uppercase tracking-wider ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
+                        <span className={`text-xs font-bold uppercase tracking-wider ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
                             คำถาม {currentQuestionIdx + 1} / 10
                         </span>
-                        <span className={`font-bold px-3 py-1 rounded-full text-sm ${darkMode ? 'bg-yellow-900 text-yellow-300' : 'bg-yellow-100 text-yellow-800'}`}>
+                        <span className={`font-bold px-3 py-1 rounded-full text-xs ${darkMode ? 'bg-yellow-900 text-yellow-300' : 'bg-yellow-100 text-yellow-800'}`}>
                             คะแนน: {score}
                         </span>
                     </div>
@@ -493,13 +493,13 @@
                     <div className={`p-6 md:p-8 rounded-xl mb-6 shadow-md text-center border ${
                         darkMode ? 'bg-slate-800 border-slate-700 text-white' : 'bg-slate-800 border-slate-700 text-white'
                     }`}>
-                        <span className="inline-block px-2 py-0.5 bg-slate-700 text-slate-300 text-xs font-bold rounded mb-2">ความหมายภาษาไทย</span>
-                        <h3 className="text-xl md:text-2xl font-bold leading-relaxed">{question.th}</h3>
+                        <span className="inline-block px-2 py-0.5 bg-slate-700 text-slate-300 text-[10px] font-bold rounded mb-2">ความหมายภาษาไทย</span>
+                        <h3 className="text-lg md:text-xl font-bold leading-relaxed">{question.th}</h3>
                     </div>
 
                     <div className="space-y-2.5">
                         {question.options.map((opt, idx) => {
-                            let btnClass = "w-full text-left p-4 rounded-xl border-2 font-bold transition-all text-base md:text-lg flex justify-between items-center ";
+                            let btnClass = "w-full text-left p-4 rounded-xl border-2 font-medium transition-all text-xs md:text-sm flex justify-between items-center ";
                             if (!selectedAnswer) {
                                 btnClass += darkMode 
                                     ? "border-slate-800 bg-slate-800 text-slate-300 hover:border-yellow-500 hover:bg-slate-750" 
@@ -516,8 +516,8 @@
                             return (
                                 <button key={idx} onClick={() => handleAnswer(opt)} disabled={!!selectedAnswer} className={btnClass}>
                                     <span>{opt.en}</span>
-                                    {selectedAnswer && opt.id === question.id && <span className="text-green-600 text-sm font-bold ml-2">✓ ถูก</span>}
-                                    {selectedAnswer && selectedAnswer.id === opt.id && !isCorrect && <span className="text-red-600 text-sm font-bold ml-2">✗ ผิด</span>}
+                                    {selectedAnswer && opt.id === question.id && <span className="text-green-600 text-xs font-bold ml-2">✓ ถูก</span>}
+                                    {selectedAnswer && selectedAnswer.id === opt.id && !isCorrect && <span className="text-red-600 text-xs font-bold ml-2">✗ ผิด</span>}
                                 </button>
                             );
                         })}
@@ -527,7 +527,7 @@
                         <div className="mt-6 flex justify-end">
                             <button 
                                 onClick={nextQuestion}
-                                className={`flex items-center gap-1 font-bold py-2.5 px-5 rounded-xl shadow-sm transition-all text-base ${
+                                className={`flex items-center gap-1 font-bold py-2.5 px-5 rounded-xl shadow-sm transition-all text-sm ${
                                     darkMode ? 'bg-yellow-500 text-slate-950' : 'bg-blue-800 text-white'
                                 }`}
                             >
@@ -545,3 +545,8 @@
     </script>
 </body>
 </html>
+"""
+
+with open("ConstrucTalk_DarkMode.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+print("File with Dark Mode generated successfully.")
